@@ -242,11 +242,13 @@ input.login_us {
 }
 
 .section_text {
-  width: 800px;
+  width: auto;
   text-align: justify;
   max-height: 250px;
   overflow-y: auto;
   overflow-x: hidden;
+  max-width: 600px;
+  padding: 5px;
 }
 
 .block_new span {
@@ -437,10 +439,63 @@ button.btn-bl-fl:active {
 }
 
 .modul_box_otv .box_one_coms {
-  width: 920px;
-  height: 495px;
+  width: auto;
+  height: auto;
   background: white;
   margin: auto;
   border-radius: 10px;
   padding: 15px;
+}
+
+.box_block_otveta > p {
+  margin-bottom: 5px;
+}
+
+.box_block_otveta {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.box_block_otveta > div {
+  min-height: 30px;
+}
+
+.box_block_otveta > div.blokc_otveta {
+  height: auto;
+  width: 100%;
+  margin-top: 10px;
+  background: white;
+}
+
+.box_block_otveta > div.blokc_otveta > textarea {
+  resize: none;
+  width: 100%;
+  font-size: inherit;
+  border: 1px solid var(--col-bg-blue-white);
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.box_block_otveta > div.body_w {
+  max-height: 190px;
+  height: auto;
+}
+
+.box_block_otveta > div.button_otv_modl {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.box_block_otveta > div.button_otv_modl > button {
+  font-size: inherit;
+  padding: 5px 10px;
+  background-color: var(--col-bg-blue-white);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }

@@ -11,7 +11,7 @@
                 <input type="text" class="login_us" placeholder="Отчество">
             </div>
             <div class="new_body__header">
-                <p>Тема сообщения  </p> <input type="text" placeholder="Тема сообщения">
+                <p>Тема сообщения </p> <input type="text" placeholder="Тема сообщения">
             </div>
             <div class="new_body__body">
                 <p>Ваше сообщение </p>
@@ -23,7 +23,6 @@
         </div>
     </div>
 
-    
 
     <div class="block_new message_rector rectors_un">
         <div class="new_header">Прошлые обращения </div>

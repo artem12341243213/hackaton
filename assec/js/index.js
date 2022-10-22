@@ -109,3 +109,25 @@ function register() {
 function print(l) {
     console.log(l)
 }
+
+function clist(id) {
+
+    let names = $("#studens").html()
+    let thems = $("#them").html()
+    let text = $("#text").html()
+
+    $("#student_moda").html(names)
+    $("#them_modal").html(thems)
+    $("#txt_moda").html(text)
+
+    $(".modul_box_otv").removeClass("display_none");
+    /*  
+    them  Тема
+     имя 
+    text  Текст
+     */
+    /* modul_box_otv_m */
+}
+function send_mail_retors() {
+    text_qul = "GLA_all/";
+}
