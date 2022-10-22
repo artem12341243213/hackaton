@@ -5,8 +5,9 @@
 <div class="block_left">
 
     <?
-    $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`, `user`.`name`,`user`.`firstName`,`user`.`lastName`,`id_user`
-     FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` ORDER BY `status`");
+    $vi = mysqli_query($CONNECT, "SELECT DISTINCT * FROM `rect_wop`  ORDER BY `status`;");
+    /*  SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`, `user`.`name`,`user`.`firstName`,`user`.`lastName`,`id_user`
+     FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` ORDER BY `status` */
 
     if ($vi->num_rows != 0) {
         foreach ($vi as $item) {
@@ -15,7 +16,13 @@
                 <div class="new_header">Сообщение к ректору</div>
                 <div class="new_body">
                     <div class="new_body__header">
-                        <p> Кто задал: <span id="studens"><? echo $item['lastName'] . " " . $item['firstName'] . " " . $item['name'] ?></span> <span class="display_none" id="user_id"><? echo $item['id_user'] ?></span></p>
+                        <p> Кто задал: <span id="studens">
+                                <? 
+                                $names = explode("=", $item['FIO'])[0] . " " . explode("=", $item['FIO'])[1] . " " . explode("=", $item['FIO'])[2];
+
+                                echo $names ?>
+
+                            </span> <span class="display_none" id="user_id"><? echo $item['id_user'] ?></span></p>
                         <p> Тема: <span id="them"><? echo $item['them'] ?></span></p>
 
                     </div>

@@ -2,7 +2,7 @@
 session_start();
 function not_found()
 {
-    print_r("error");
+    print_r($_SESSION);
 }
 
 

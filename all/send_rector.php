@@ -9,24 +9,24 @@
                 <div class="new_body__header display_none">
                     <p>Введите ФИО</p>
                     <input type="text" class="login_us" id="firstName_block_send_r" placeholder="Фамилия" value="<? echo $_SESSION['user']['firstName'] ?>">
-                    <input type="text" class="login_us" id="name_block_send_r"  placeholder="Имя" value="<? echo $_SESSION['user']['name'] ?>">
-                    <input type="text" class="login_us" id="lastName_block_send_r"  placeholder="Отчество" value="<? echo $_SESSION['user']['lastName'] ?>">
+                    <input type="text" class="login_us" id="name_block_send_r" placeholder="Имя" value="<? echo $_SESSION['user']['name'] ?>">
+                    <input type="text" class="login_us" id="lastName_block_send_r" placeholder="Отчество" value="<? echo $_SESSION['user']['lastName'] ?>">
                 </div>
             <? } else { ?>
                 <div class="new_body__header">
                     <p>Введите ФИО</p>
-                    <input type="text" class="login_us" placeholder="Фамилия">
-                    <input type="text" class="login_us" placeholder="Имя">
-                    <input type="text" class="login_us" placeholder="Отчество">
+                    <input type="text" class="login_us" id="firstName_block_send_r" placeholder="Фамилия">
+                    <input type="text" class="login_us" id="name_block_send_r" placeholder="Имя">
+                    <input type="text" class="login_us" id="lastName_block_send_r" placeholder="Отчество">
                 </div>
             <? } ?>
 
             <div class="new_body__header">
-                <p>Тема сообщения </p> <input type="text" placeholder="Тема сообщения">
+                <p>Тема сообщения </p> <input type="text" placeholder="Тема сообщения" id="thema_teksta">
             </div>
             <div class="new_body__body">
                 <p>Ваше сообщение </p>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Само обращение"></textarea>
+                <textarea cols="30" rows="10" placeholder="Само обращение" id="textarea_box_text"></textarea>
             </div>
         </div>
         <div class="button_send_rectors">

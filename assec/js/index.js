@@ -151,8 +151,12 @@ function ot_mi_rector_send_m() {
     let first_name = $("#name_block_send_r").val();
     let last_name = $("#lastName_block_send_r").val();
 
-    text = "GLA_all/send_rectors_mi_f=1&name"
+    let lis = name + "=" + first_name + "=" + last_name;
+    let thema_teksta = $("#thema_teksta").val();
+    let textarea_box_text = $("textarea#textarea_box_text").val();
 
-    /* FIO */
-    // ajx(text)
+
+    text = "GLA_all/send_rectors_mi_f=1&name=" + lis + "&them=" + thema_teksta + "&text=" + textarea_box_text.replace("+", "&#43;")
+
+    ajx(text)
 }
