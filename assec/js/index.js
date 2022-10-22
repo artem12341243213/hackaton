@@ -9,13 +9,13 @@ function ajx(text) {
         type: "POST",
         url: url,
         data: str_ne,
-        dataType: "dataType",
         caches: false,
-        success: function (response) {
-            if (response == 1) {
-                alert("Удачно")
-            } else if (response == 0) {
-                alert("Неудачно")
+        success: function (re) {
+            console.log(re);
+            if (re == 1) {
+                alert("Успешно")
+            } else if (re == 0) {
+                alert("Неудача")
             }
         }
     });
@@ -115,8 +115,10 @@ function clist(id) {
     let names = $("#studens").html()
     let thems = $("#them").html()
     let text = $("#text").html()
+    let idi = $("#id_texta").html()
 
     $("#student_moda").html(names)
+    $("#id_texta_modal").html(idi)
     $("#them_modal").html(thems)
     $("#txt_moda").html(text)
 
@@ -130,4 +132,16 @@ function clist(id) {
 }
 function send_mail_retors() {
     text_qul = "GLA_all/";
+
+    let id = $("#id_texta_modal").html()
+
+
+    let text = $("textarea#text_dek_t").val();
+
+    text = text.replace("+", "&#43;")
+    text_qul += "send_rectors_f=1&id_send=" + id + "&text_rectors=" + text
+    $(".modul_box_otv").addClass("display_none");
+    $("#block_ri_s_" + id).remove();
+    ajx(text_qul)
+
 }
