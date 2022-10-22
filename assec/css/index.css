@@ -499,3 +499,8 @@ button.btn-bl-fl:active {
   border: none;
   cursor: pointer;
 }
+
+.block_new .button_s > p {
+  margin-right: 10px;
+  line-height: 25px;
+}

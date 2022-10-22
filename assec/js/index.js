@@ -145,3 +145,14 @@ function send_mail_retors() {
     ajx(text_qul)
 
 }
+
+function ot_mi_rector_send_m() {
+    let name = $("#firstName_block_send_r").val();
+    let first_name = $("#name_block_send_r").val();
+    let last_name = $("#lastName_block_send_r").val();
+
+    text = "GLA_all/send_rectors_mi_f=1&name"
+
+    /* FIO */
+    // ajx(text)
+}

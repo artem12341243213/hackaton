@@ -6,7 +6,7 @@
 
     <?
     $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`, `user`.`name`,`user`.`firstName`,`user`.`lastName`,`id_user`
-     FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` and  `status` = 'R' ORDER BY `status`");
+     FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` ORDER BY `status`");
 
     if ($vi->num_rows != 0) {
         foreach ($vi as $item) {
@@ -15,20 +15,24 @@
                 <div class="new_header">Сообщение к ректору</div>
                 <div class="new_body">
                     <div class="new_body__header">
+                        <p> Кто задал: <span id="studens"><? echo $item['lastName'] . " " . $item['firstName'] . " " . $item['name'] ?></span> <span class="display_none" id="user_id"><? echo $item['id_user'] ?></span></p>
                         <p> Тема: <span id="them"><? echo $item['them'] ?></span></p>
-                        <p> Ученик: <span id="studens"><? echo $item['lastName'] . " " . $item['firstName'] . " " . $item['name'] ?></span> <span class="display_none" id="user_id"><? echo $item['id_user'] ?></span></p>
+
                     </div>
 
                     <div class="new_body__body">
+
                         <span class="display_none" id="id_texta"><? echo $item["id"] ?></span>
                         <div class="section_text" title="Текст новости">
                             <span id="text">
+                                <p>Текст:</p>
                                 <? echo $item['text'] ?>
                             </span>
                         </div>
                     </div>
                     <div class="button_s">
                         <? if ($item['status'] == "X") {                        ?>
+                            <p> Ответ дан </p>
                             <button onclick="promis('block_ri_s_<? echo $item['id'] ?>')">Посмотреть</button>
                         <? } else { ?>
                             <button onclick="clist('block_ri_s_<? echo $item['id'] ?>')">Ответить</button>
