@@ -13,9 +13,8 @@ if (isset($_POST["login_f"]) and $_POST["login_f"] == 1) {
             $m[$key] = $item;
         }
         $_SESSION['user'] = $m;
-        print(1);
+        go('home');
     }
-    
 } else if (isset($_POST["registers_f"]) and $_POST["registers_f"] == 1) {
 
 
@@ -26,7 +25,7 @@ if (isset($_POST["login_f"]) and $_POST["login_f"] == 1) {
     if (mysqli_query($CONNECT, "INSERT INTO `user` (`id`, `login`, `password`, `class`, `name`, `firstName`, `lastName`) 
    VALUES (NULL, '" . $_POST["login"] . "', '" . $_POST["pass"] . "', '" . $m . "',
     '" . $_POST["name"] . "', '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "')")) {
-        print_r(1);
+        go('home');
     } else
         print_r(0);
 }

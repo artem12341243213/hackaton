@@ -14,7 +14,7 @@
     <div class="headers">
 
         <div class="img_box_headers">
-            <div class="img"><img src="assec/img/logo_headers.png" alt=""></div>
+            <div class="img"><img src="assec/img/logo_n.png" alt="" style=" width: 70%;"></div>
             <div class="text">
                 <p>
                     Северо-кавказский филиал <br>

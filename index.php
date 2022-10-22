@@ -5,10 +5,16 @@ function not_found()
     print_r($_SESSION);
 }
 
+$m = "hakatons_bd";
+$s = "hakatons_les_bd_12";
+$m1 = "atoropchin";
+$s1 = "NRVM89RS*KWJnDZX";
 
-$name_bd = "hakatons_bd";
-$name_user_bd = "hakatons_bd";
-$password_user_bd = "hakatons_les_bd_12";
+
+
+$name_bd = $m1;
+$name_user_bd = $m1;
+$password_user_bd = $s1;
 
 $CONNECT = mysqli_connect('localhost', $name_user_bd, $password_user_bd,  $name_bd);
 if (!$CONNECT) print_r("База данных выдала ошибку - проверте");
@@ -41,6 +47,10 @@ if (file_exists("all/$page.php")) {
     not_found();
 }
 
+function go($url)
+{
+    exit('{"go" : "' . $url . '"}');
+}
 
 function headers($hed)
 {

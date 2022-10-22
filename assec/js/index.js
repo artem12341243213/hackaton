@@ -11,16 +11,22 @@ function ajx(text) {
         data: str_ne,
         caches: false,
         success: function (re) {
-            console.log(re);
-            if (re == 1) {
-                alert("Успешно")
-            } else if (re == 0) {
-                alert("Неудача")
+            obj = jQuery.parseJSON(re);
+            if (obj.go)
+                setTimeout(() => {
+                    locations(obj.go);
+                }, 500);
+            else {
+                alert("Готово")
             }
         }
     });
 }
 
+
+function locations(url) {
+    window.location.href = "/" + url;
+}
 function onRegisters_ragio(l) {
 
     $(`label[for='check_radio_your_teacher']`).removeClass("active_chekeds_bo");
@@ -159,4 +165,9 @@ function ot_mi_rector_send_m() {
     text = "GLA_all/send_rectors_mi_f=1&name=" + lis + "&them=" + thema_teksta + "&text=" + textarea_box_text.replace("+", "&#43;")
 
     ajx(text)
+}
+
+function admins_button_l(i) {
+
+    ajx("GLA_all/admin_element_f=1&doint=" + i)
 }

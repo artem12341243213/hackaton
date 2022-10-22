@@ -17,6 +17,10 @@
                         <li><a href="timetable">Расписание занятий</a></li>
                         <li><a href="send_rector">Написать ректору</a></li>
                         <li><a onclick="ajx('GLA_all/adminis_forms_f=1')">Админ права</a></li>
+                        <? if (isset($_SESSION['ADMIN_LOGIN_IN'])) { ?>
+                            <li><a href="admin_panels">Админ ппанель</a></li>
+                        <? } ?>
+
                     </ol>
                 </li>
 
