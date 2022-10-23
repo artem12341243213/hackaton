@@ -7,14 +7,13 @@ function not_found()
 
 $m = "hakatons_bd";
 $s = "hakatons_les_bd_12";
-$m1 = "atoropchin";
-$s1 = "NRVM89RS*KWJnDZX";
 
-
-
-$name_bd = $m1;
-$name_user_bd = $m1;
-$password_user_bd = $s1;
+/* $m = "atoropchin";
+$s = 'AUW4DUkDLUHRE$KQ';
+ */
+$name_bd = $m;
+$name_user_bd = $m;
+$password_user_bd = $s;
 
 $CONNECT = mysqli_connect('localhost', $name_user_bd, $password_user_bd,  $name_bd);
 if (!$CONNECT) print_r("База данных выдала ошибку - проверте");

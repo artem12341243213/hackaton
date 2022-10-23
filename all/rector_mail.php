@@ -5,7 +5,7 @@
 <div class="block_left">
 
     <?
-    $vi = mysqli_query($CONNECT, "SELECT DISTINCT * FROM `rect_wop`  ORDER BY `status`;");
+    $vi = mysqli_query($CONNECT, "SELECT DISTINCT * FROM `rect_wop`  ORDER BY `status`, `id` DESC;");
     /*  SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`, `user`.`name`,`user`.`firstName`,`user`.`lastName`,`id_user`
      FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` ORDER BY `status` */
 
@@ -17,7 +17,7 @@
                 <div class="new_body">
                     <div class="new_body__header">
                         <p> Кто задал: <span id="studens">
-                                <? 
+                                <?
                                 $names = explode("=", $item['FIO'])[0] . " " . explode("=", $item['FIO'])[1] . " " . explode("=", $item['FIO'])[2];
 
                                 echo $names ?>
@@ -31,8 +31,9 @@
 
                         <span class="display_none" id="id_texta"><? echo $item["id"] ?></span>
                         <div class="section_text" title="Текст новости">
+                            <p>Текст:</p>
                             <span id="text">
-                                <p>Текст:</p>
+
                                 <? echo $item['text'] ?>
                             </span>
                         </div>
@@ -55,6 +56,7 @@
 
     <div class="modul_box_otv display_none">
         <div class="box_one_coms">
+            <div class="element_close_modals" onclick="closse_modal()"> </div>
             <div class="box_block_otveta">
                 <p>Студент: <span id="student_moda"></span> <span class="display_none" id="user_id_modal"></span></p>
                 <div class="block_section_header">

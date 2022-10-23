@@ -118,10 +118,10 @@ function print(l) {
 
 function clist(id) {
 
-    let names = $("#studens").html()
-    let thems = $("#them").html()
-    let text = $("#text").html()
-    let idi = $("#id_texta").html()
+    let names = $("#" + id + " #studens").html()
+    let thems = $("#" + id + " #them").html()
+    let text = $("#" + id + " #text").html()
+    let idi = $("#" + id + " #id_texta").html()
 
     $("#student_moda").html(names)
     $("#id_texta_modal").html(idi)
@@ -135,6 +135,15 @@ function clist(id) {
     text  Текст
      */
     /* modul_box_otv_m */
+
+
+
+}
+
+
+
+function closse_modal() {
+    $(".modul_box_otv").addClass('display_none')
 }
 function send_mail_retors() {
     text_qul = "GLA_all/";

@@ -38,8 +38,9 @@
         <div class="new_header">Прошлые обращения </div>
         <?
 
-        $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`,`id_user` FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` and `status` = 'X' and `rect_wop`.`id_user` = 1 ORDER BY `status`;");
-
+        $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`,`id_user` 
+        FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` and `rect_wop`.`id_user` =" . $_SESSION['user']['id'] . "
+        ORDER BY `status`, `id` DESC;");
 
         if ($vi->num_rows != 0) {
             foreach ($vi as $item) {

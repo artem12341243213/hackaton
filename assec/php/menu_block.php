@@ -9,7 +9,7 @@
                 <? if (!isset($_SESSION['user'])) { ?>
                     <a href="authf"> Вход</a>
                 <? } else { ?>
-                    <a href="prof"> Профиль</a>
+                    <a href="prof"> <!-- Профиль --> <? echo $_SESSION['user']['id']?></a>
                 <? } ?>
             </li>
         </ul>
