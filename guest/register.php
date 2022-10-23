@@ -41,7 +41,7 @@
                         <input type="radio" name="yor" id="check_radio_your_employee" value="employee">
                     </div>
 
-                    <label for="check_radio_your_teacher" onclick="onRegisters_ragio('check_radio_your_teacher')">Учитель</label>
+                    <label for="check_radio_your_teacher" onclick="onRegisters_ragio('check_radio_your_teacher')">Преподаватель</label>
                     <label for="check_radio_your_student" onclick="onRegisters_ragio('check_radio_your_student')">Студент</label>
                     <label for="check_radio_your_employee" onclick="onRegisters_ragio('check_radio_your_employee')">Сотрудник</label>
                 </div>

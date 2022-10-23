@@ -1,6 +1,6 @@
 <?php
 // print_r($_POST);
-if (isset($_POST['send_rectors_f']) and $_POST['send_rectors_f'] = 1) {
+if (isset($_POST['send_rectors_f']) and $_POST['send_rectors_f'] == 1) {
     if (mysqli_query($CONNECT, "UPDATE `rect_wop` SET `otv` = '" . $_POST['text_rectors'] . "' ,`status`='X' WHERE `rect_wop`.`id` = " . $_POST['id_send'])) print(1);
     else print(0);
 } else if (isset($_POST['send_rectors_mi_f']) and $_POST['send_rectors_mi_f'] = 1) {
@@ -10,10 +10,10 @@ if (isset($_POST['send_rectors_f']) and $_POST['send_rectors_f'] = 1) {
     if (mysqli_query($CONNECT, " INSERT INTO `rect_wop` (`id`, `text`, `otv`, `them`, `status`, `id_user`, `FIO`) 
 VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi, '" . $_POST['name'] . "') ")) print(1);
     else print(0);
-} else if (isset($_POST['adminis_forms_f']) and $_POST['adminis_forms_f'] = 1) {
+} else if (isset($_POST['adminis_forms_f']) and $_POST['adminis_forms_f'] == 1) {
 
     $_SESSION['ADMIN_LOGIN_IN'] = 1;
-} else if (isset($_POST['admin_element_f']) and $_POST['admin_element_f'] = 1) {
+} else if (isset($_POST['admin_element_f']) and $_POST['admin_element_f'] == 1) {
 
     switch ($_POST['doint']) {
         case 'elems_1':
@@ -33,10 +33,10 @@ VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi
             go('home');
             break;
     }
-} else if (isset($_POST['exit_user_f']) and $_POST['exit_user_f'] = 1) {
+} else if (isset($_POST['exit_user_f']) and $_POST['exit_user_f'] == 1) {
     unset($_SESSION['user']);
     go("home");
-} else if (isset($_POST['edit_items']) and $_POST['edit_items'] = 1) {
+} else if (isset($_POST['edit_items']) and $_POST['edit_items'] == 1) {
 
     if ($_FILES != null) {
         $img_product = '';
@@ -60,10 +60,15 @@ VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi
      VALUES ('" . $_POST['hesh'] . "', '" . $text . "', '" . $header . "', '" . $img_mass . "')");
 
     go("new_block");
-} else if (isset($_POST['items_ti_f_no_f']) and $_POST['items_ti_f_no_f'] = 1) {
+} else if (isset($_POST['items_ti_f_no_f']) and $_POST['items_ti_f_no_f'] == 1) {
     $d = mysqli_query($CONNECT, "SELECT * FROM `New` WHERE `hesh` = '" . $_POST['tips'] . "' ORDER by `id` DESC");
     if (($d->num_rows) != 0) {
         $d = mysqli_fetch_all($d);
         print_r('{"masive":[' . json_encode($d) . ']}');
     }
+} else if (isset($_POST['remove_now_post_f']) and $_POST['remove_now_post_f'] == 1) {
+    if (mysqli_query($CONNECT, "DELETE FROM `New` WHERE `id` = " + $_POST['id']))
+        print(1);
+    else
+        print(0);
 }

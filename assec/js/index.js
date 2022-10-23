@@ -24,6 +24,28 @@ function ajx(text) {
     });
 }
 
+function remove_now_s(id) {
+    data = "Block_now_id_" + id;
+    if (confirm("Удалить ?")) {
+        $.ajax({
+            type: "POST",
+            url: "GLA_all",
+            data: "remove_now_post_f=1&id=" + id,
+            caches: false,
+            success: function (res) {
+                if (res == 1) {
+                    $("#" + data).remove();
+                }
+                else {
+                    alert("Возникла ошибка, попробуйте позжe");
+                }
+            }
+        });
+    }
+    else {
+        return;
+    }
+}
 
 function locations(url) {
     window.location.href = "/" + url;

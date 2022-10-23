@@ -5,6 +5,7 @@
 
 $data = mysqli_query($CONNECT, "SELECT * FROM `New` ORDER BY `id` DESC");
 
+
 ?>
 <div class="block_left">
     <? //	id		
@@ -12,7 +13,7 @@ $data = mysqli_query($CONNECT, "SELECT * FROM `New` ORDER BY `id` DESC");
         $data = mysqli_fetch_all($data);
         foreach ($data as $lios) {
     ?>
-            <div class="block_new">
+            <div class="block_new" id="Block_now_id_<? echo $lios[0] ?>">
                 <div class="new_header" data-teg="<? echo  $lios[1] ?>">Новости СКФ МТУСИ <span onclick="href_ti_n('<? echo $lios[1] ?>')">
                         <?
                         switch ($lios[1]) {
@@ -39,6 +40,9 @@ $data = mysqli_query($CONNECT, "SELECT * FROM `New` ORDER BY `id` DESC");
                         <div class="section_text" title="Текст новости">
                             <? echo $lios[2] ?>
                         </div>
+                        <? if (isset($_SESSION['user']) and $_SESSION['user']['class'] == 4) { ?>
+                            <p style="color:red; cursor:pointer;" onclick="remove_now_s('<? echo $lios[0] ?>')">Удалить</p>
+                        <? } ?>
                     </div>
                 </div>
             </div>

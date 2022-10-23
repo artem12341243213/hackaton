@@ -357,7 +357,7 @@ label.active_chekeds_bo:before {
 
 .message_rector .new_body__body > textarea {
   resize: none;
-  width: 60.625rem;
+  width: 50rem;
   margin: 0 0.938rem;
   padding: 0.625rem;
   display: flex;
@@ -397,6 +397,7 @@ label.active_chekeds_bo:before {
 
 .block_new.message_rector .new_body {
   margin-bottom: 0;
+  min-width: 60rem;
 }
 p.owadnlk {
   color: #181818;
@@ -591,4 +592,58 @@ button.btn-bl-fl:active {
 }
 .section_img img {
   width: 100%;
+}
+
+.block_elements_profils {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block_img_profils {
+  margin-right: 2rem;
+}
+
+.data_fio {
+  margin-bottom: 1rem;
+}
+
+.block_moduls {
+  display: flex;
+}
+
+.block_moduls > div {
+  border: 1px solid;
+  padding: 0.5rem;
+  width: fit-content;
+  height: 40px;
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  background: white;
+}
+
+.block_group_n {
+  margin-left: 0.5rem;
+}
+.block_moduls > div > p {
+  -webkit-transform: skew(20deg);
+}
+.block_moduls > div > p {
+  -webkit-transform: skew(20deg);
+}
+
+.button_vi {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.button_vi > button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  background: var(--col-gl_bg);
+  cursor: pointer;
 }
