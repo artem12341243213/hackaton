@@ -27,7 +27,7 @@ if ($s['class'] == 1) {
         </div>
         <div class="block_elements_profils">
             <div class="block_img_profils">
-                <img src="assec/img/foto_false.jpg" alt="">
+                <img src="assec/img/user.png" alt="">
             </div>
             <div class="block_user_data">
                 <div class="elements_data">
