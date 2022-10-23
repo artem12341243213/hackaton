@@ -456,14 +456,15 @@ button.btn-bl-fl:active {
 
 .modul_box_otv {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
   background: #00000029;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .modul_box_otv .box_one_coms {

@@ -4,6 +4,7 @@
             <p>Быстрый поиск по категориям</p>
         </div>
         <div class="body_block">
+       
             <ul>
                 <li> Теги новостей
                     <ol>
@@ -16,7 +17,7 @@
                     <ol>
                         <li><a href="timetable">Расписание занятий</a></li>
                         <li><a href="send_rector">Написать ректору</a></li>
-                        <? if (isset($_SESSION['user']) && $_SESSION['user']['classe'] == 4) { ?>
+                        <? if (isset($_SESSION['user']) && $_SESSION['user']['class'] == 4) { ?>
                             <li><a href="admin_panels">Админ панель</a></li>
                         <? } ?>
 
