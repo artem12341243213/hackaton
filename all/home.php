@@ -41,7 +41,7 @@ $data = mysqli_query($CONNECT, "SELECT * FROM `New` ORDER BY `id` DESC");
                             <? echo $lios[2] ?>
                         </div>
                         <? if (isset($_SESSION['user']) and $_SESSION['user']['class'] == 4) { ?>
-                            <p style="color:red; cursor:pointer;" onclick="remove_now_s('<? echo $lios[0] ?>')">Удалить</p>
+                            <p style="color:red; cursor:pointer;" onclick="remove_now_s(<? echo $lios[0] ?>)">Удалить</p>
                         <? } ?>
                     </div>
                 </div>

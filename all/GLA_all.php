@@ -67,7 +67,8 @@ VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi
         print_r('{"masive":[' . json_encode($d) . ']}');
     }
 } else if (isset($_POST['remove_now_post_f']) and $_POST['remove_now_post_f'] == 1) {
-    if (mysqli_query($CONNECT, "DELETE FROM `New` WHERE `id` = " + $_POST['id']))
+
+    if (mysqli_query($CONNECT, "DELETE FROM `New` WHERE `id` = " . $_POST['id']))
         print(1);
     else
         print(0);
