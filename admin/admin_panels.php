@@ -8,7 +8,7 @@
         </div>
         <div class="up_block">
             <div class="elems_1">
-                <p>Список зарегистрированных пользователей</p> <button class="btn-bl-fl" onclick="('elems_1')">Показать</button>
+                <p>Список зарегистрированных пользователей</p> <button class="btn-bl-fl" onclick="admins_button_l('elems_1')">Показать</button>
             </div>
             <div class="elems_2">
                 <p>Новостной блок</p> <button class="btn-bl-fl" onclick="admins_button_l('elems_2')">Редактировать</button>

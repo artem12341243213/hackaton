@@ -37,8 +37,33 @@ VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi
     unset($_SESSION['user']);
     go("home");
 } else if (isset($_POST['edit_items']) and $_POST['edit_items'] = 1) {
-    print_r($_FILES);
+
+    if ($_FILES != null) {
+        $img_product = '';
+        foreach ($_FILES as $item) {
+            $uploads = 'assec/images/product';
+            if ($item["error"] == 0) {
+                $tmp_name = $item["tmp_name"];
+                $name = basename($item["name"]);
+                move_uploaded_file($tmp_name, "$uploads/$name");
+                $file = $item["name"];
+                $img_product .= "|" . $file;
+            }
+        }
+        $img_mass = $img_product;
+    }
 
     $header = $_POST['header'];
     $text = $_POST['text'];
+
+    mysqli_query($CONNECT, "INSERT INTO `New` (`hesh`, `text`, `them`, `img`)
+     VALUES ('" . $_POST['hesh'] . "', '" . $text . "', '" . $header . "', '" . $img_mass . "')");
+
+    go("new_block");
+} else if (isset($_POST['items_ti_f_no_f']) and $_POST['items_ti_f_no_f'] = 1) {
+    $d = mysqli_query($CONNECT, "SELECT * FROM `New` WHERE `hesh` = '" . $_POST['tips'] . "' ORDER by `id` DESC");
+    if (($d->num_rows) != 0) {
+        $d = mysqli_fetch_all($d);
+        print_r('{"masive":[' . json_encode($d) . ']}');
+    }
 }

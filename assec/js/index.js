@@ -17,7 +17,8 @@ function ajx(text) {
                     locations(obj.go);
                 }, 500);
             else {
-                alert("Готово")
+                alert("Готово");
+                document.location.reload();
             }
         }
     });
@@ -151,17 +152,28 @@ var imgmas = [];
 
 function Lest_so_f_mi() {
 
+    $("#litovis_button_Send").attr("disabled", "disabled");
+    if ($("#headers_bloc").val().length < 2 ||
+        $("#text_no_arr").val().length < 2 ||
+        $("#select_cher").val().length < 2) {
+        alert("Пустые поля оставлять нельзя!")
+        return;
+    }
 
+    setTimeout(() => {
+        $("#litovis_button_Send").removeAttr("disabled");
+    }, 3000)
     let files = $("#file_box")[0].files;
-    console.log(files)
+
     var fd = new FormData;
     for (var i = 0; i < files.length; i++) {
         fd.append('img' + i, files[i]);
     }
 
     mas_iputs = [
-        ["header", $("#select_cher").val()],
-        ["text", $("#text_no_arr").val()]];
+        ["header", $("#headers_bloc").val()],
+        ["text", $("#text_no_arr").val()],
+        ["hesh", $("#select_cher").val()]];
 
 
     mas_iputs.forEach((data) => {
@@ -170,19 +182,93 @@ function Lest_so_f_mi() {
 
     fd.append('edit_items', "1");
 
-    console.log(fd);
-    /*   $.ajax({
-          type: "POST",
-          url: "GLA_all",
-          data: fd,
-          processData: false,
-          contentType: false,
-          success: function (response) {
-  
-          }
-      }); */
+    $.ajax({
+        type: "POST",
+        url: "GLA_all",
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            alert("Готово");
+            locations("new_block");
+        }
+    });
 
 }
+
+
+function href_ti_n(i) {
+    //console.log($(".block_new .new_header[data-teg=" + i + "]"));
+    $.ajax({
+        type: "POST",
+        url: "GLA_all",
+        data: "items_ti_f_no_f=1&tips=" + i,
+        caches: false,
+        success: function (res) {
+            let le = "";
+            res = JSON.parse(res)['masive'][0];
+            res.forEach(data => {
+                print(data);
+                let ol = "";
+                switch (data[1]) {
+                    case 'vuz':
+                        ol = "#Жизнь ВУЗа";
+                        break;
+                    case 'uch_now':
+                        ol = "#Учебные новости";
+                        break;
+                    case 'soc_live':
+                        ol = "#Социальная жизнь";
+                        break;
+                }
+                le += `;
+                <div class="block_new">
+                    <div class="new_header" data-teg="${data[1]}">Новости СКФ МТУСИ 
+                    <span onclick="href_ti_n('${data[1]}')">
+                    ${ol}
+                    </span></div>
+
+                    <div class="new_body">
+                        <div class="new_body__header">
+                            <p>${data[3]}</p>
+                        </div>
+                        <div class="new_body__body">
+                            <div class="section_img">
+                                <img src="assec/img/${data[4].replace("|", "")}" alt="Фото новости">
+                            </div>
+                            <div class="section_text" title="Текст новости">
+                            ${data[2]}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `
+            });
+            $(".block_left").html(le)
+        }
+
+        /*  */
+
+
+
+    });
+
+
+    /* Array
+(
+    [0] => Array
+        (
+            [0] => 2
+            [1] => soc_live
+            [2] => VYjuj Много текста Rnjhjsq ОПисыunture pellendus amet odit, maiores perspiciatis!
+            [3] => ИИИ ВОт новый ЗагАлоВок !!!
+            [4] => |logo_headers.png
+        )
+    )
+ */
+}
+
+
 function send_mail_retors() {
     text_qul = "GLA_all/";
 

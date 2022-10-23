@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="button_s">
-                        <? if ($item['status'] == "X") {                        ?>
+                        <? if ($item['status'] == "X") {   ?>
                             <p> Ответ дан </p>
                             <button onclick="promis('block_ri_s_<? echo $item['id'] ?>')">Посмотреть</button>
                         <? } else { ?>
@@ -48,9 +48,34 @@
                     </div>
                 </div>
             </div>
-    <?
+        <?
         }
-    }
+    } else { ?>
+        <div class="block_new <? if ($item['status'] == "X") echo "yes_otvet" ?>" id="block_ri_s_<? echo $item["id"] ?>">
+            <div class="new_header">Сообщение к ректору</div>
+            <div class="new_body">
+                <div class="new_body__header">
+                    <p>
+                        Кто задал: <span id="studens"> Консоль </span>
+                        <span class="display_none" id="user_id">-1</span>
+                    </p>
+                    <p> Тема: <span id="them">Обращения к ректору</span></p>
+
+                </div>
+                <div class="new_body__body">
+                    <span class="display_none" id="id_texta"></span>
+                    <div class="section_text" title="Текст новости">
+                        <p>Текст:</p>
+                        <span id="text">
+                            Обращенией нет
+                        </span>
+                    </div>
+                </div>
+                <div class="button_s">
+                </div>
+            </div>
+        </div>
+    <?  }
     ?>
 
 

@@ -22,6 +22,7 @@ a {
 body {
   background-color: var(--col-bg-body);
   font-family: arial;
+  min-width: 1200px;
 }
 .display_none {
   display: none !important;
@@ -102,6 +103,7 @@ main {
   border-radius: 0.313rem 0.313rem 0px 0px;
   color: var(--col-text-block);
   text-align: center;
+  position: sticky;
 }
 
 nav.navigation_block {
@@ -110,6 +112,9 @@ nav.navigation_block {
   width: 15.625rem;
   overflow: hidden;
   font-size: 1.25rem;
+  position: sticky;
+  top: 1rem;
+  right: 1rem;
 }
 
 .navigation_block > div {
@@ -135,6 +140,8 @@ nav.navigation_block {
 .block_right {
   max-width: 15.625rem;
   width: 20%;
+  height: auto;
+  position: relative;
 }
 
 .block_left {
@@ -206,10 +213,17 @@ input.login_us {
 }
 
 .block_new {
-  width: 64.375rem;
+  width: 60rem;
+  min-width: 60rem;
   background: var(--col-bg-block);
   border-radius: 0.313rem;
   margin-bottom: 0.313rem;
+}
+@media screen and (width<800px) {
+  .block_new {
+    min-width: 40rem;
+    width: 55rem;
+  }
 }
 
 .block_new .new_header {
@@ -239,16 +253,23 @@ input.login_us {
   display: flex;
   flex-direction: row;
   margin-top: 0.313rem;
+  width: fit-content;
 }
 
 .section_text {
-  width: auto;
+  width: 49vw;
   text-align: justify;
   max-height: 15.625rem;
   overflow-y: auto;
   overflow-x: hidden;
-  max-width: 37.5rem;
+  max-width: 42rem;
   padding: 0.313rem;
+  min-width: 30rem;
+}
+@media screen and (width<800px) {
+  .section_text {
+    width: 40rem;
+  }
 }
 
 .block_new span {
@@ -346,6 +367,12 @@ label.active_chekeds_bo:before {
   font-size: 1rem;
   outline-color: var(--col-bg-blue-white);
 }
+
+@media screen and (width<800px) {
+  .message_rector .new_body__body > textarea {
+    width: 50rem;
+  }
+}
 .message_rector .new_body__header > p {
   width: 150px;
 }
@@ -379,7 +406,7 @@ p.owadnlk {
   height: 0.313rem;
 }
 .auth_block.admin_elems {
-  width: 800px;
+  width: auto;
 }
 
 .auth_block.admin_elems .up_block p {
@@ -561,4 +588,7 @@ button.btn-bl-fl:active {
 }
 .block_new .button_s button:active {
   background: var(--col-gl_bg);
+}
+.section_img img {
+  width: 100%;
 }

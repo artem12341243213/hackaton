@@ -7,9 +7,9 @@
             <ul>
                 <li> Теги новостей
                     <ol>
-                        <li><a onclick="">Жизнь ВУЗа</a> </li>
-                        <li><a onclick="">Учебные новости</a></li>
-                        <li><a onclick="">Социальная жизнь</a></li>
+                        <li><a onclick="href_ti_n('vuz')">Жизнь ВУЗа</a> </li>
+                        <li><a onclick="href_ti_n('uch_now')">Учебные новости</a></li>
+                        <li><a onclick="href_ti_n('soc_live')">Социальная жизнь</a></li>
                     </ol>
                 </li>
                 <li> Страницы

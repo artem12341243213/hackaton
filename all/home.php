@@ -1,53 +1,56 @@
 <? headers("Главная") ?>
 
 
+<?
 
+$data = mysqli_query($CONNECT, "SELECT * FROM `New` ORDER BY `id` DESC");
+
+?>
 <div class="block_left">
-    <div class="block_new">
-        <div class="new_header" data-teg="Жизнь_ВУЗа">Новости СКФ МТУСИ <span>#Жизнь_ВУЗа</span></div>
-        <div class="new_body">
-            <div class="new_body__header">
-                <p>Мы выграли конкурс!</p>
-            </div>
-            <div class="new_body__body">
-                <div class="section_img">
-                    <img src="assec/img/foto_false.jpg" alt="Фото новости">
-                </div>
-                <div class="section_text" title="Текст новости">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate vitae, id aliquid
-                    delectus, tempore unde reprehenderit soluta laudantium optio voluptatum placeat nulla.
-                    Accusantium maxime voluptatum vero voluptatibus iusto quibusdam assumenda!
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora sapiente ex fuga deleniti
-                    ab dolore placeat quibusdam assumenda, consequuntur, rem dicta in incidunt? Dolore, at
-                    similique dignissimos eius quos sapiente.
-                </div>
-            </div>
-        </div>
-    </div>
+    <? //	id		
+    if (($data->num_rows) != 0) {
+        $data = mysqli_fetch_all($data);
+        foreach ($data as $lios) {
+    ?>
+            <div class="block_new">
+                <div class="new_header" data-teg="<? echo  $lios[1] ?>">Новости СКФ МТУСИ <span onclick="href_ti_n('<? echo $lios[1] ?>')">
+                        <?
+                        switch ($lios[1]) {
+                            case 'vuz':
+                                echo "#Жизнь ВУЗа";
+                                break;
+                            case 'uch_now':
+                                echo "#Учебные новости";
+                                break;
+                            case 'soc_live':
+                                echo "#Социальная жизнь";
+                                break;
+                        }
+                        ?></span></div>
 
-    <div class="block_new">
-        <div class="new_header" data-teg="Жизнь_ВУЗа">Новости СКФ МТУСИ <span onclick="">#Жизнь_ВУЗа</span>
-        </div>
-        <div class="new_body">
-            <div class="new_body__header">
-                <p>Мы выграли конкурс!</p>
-            </div>
-            <div class="new_body__body">
-                <div class="section_img">
-                    <img src="assec/img/foto_false.jpg" alt="Фото новости">
-                </div>
-                <div class="section_text" title="Текст новости">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate vitae, id aliquid
-                    delectus, tempore unde reprehenderit soluta laudantium optio voluptatum placeat nulla.
-                    Accusantium maxime voluptatum vero voluptatibus iusto quibusdam assumenda!
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora sapiente ex fuga deleniti
-                    ab dolore placeat quibusdam assumenda, consequuntur, rem dicta in incidunt? Dolore, at
-                    similique dignissimos eius quos sapiente.
+                <div class="new_body">
+                    <div class="new_body__header">
+                        <p><? echo $lios[3] ?></p>
+                    </div>
+                    <div class="new_body__body">
+                        <div class="section_img">
+                            <img src="assec/img/<? print_r(str_replace("|", "", $lios[4])) ?>" alt="Фото новости">
+                        </div>
+                        <div class="section_text" title="Текст новости">
+                            <? echo $lios[2] ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        <?
+        }
+    } else { ?>
+        ДА
+    <? } ?>
 
 </div>
+
+</div>
+
 
 <? foter() ?>

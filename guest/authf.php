@@ -9,13 +9,13 @@
             <div class="block_login">
                 <p>Логин</p>
                 <span class="error_text_auth display_none">Логин не существует</span>
-                <input type="text" class="login_us" id="login" value="a123">
+                <input type="text" class="login_us" id="login" value="" placeholder="Логин">
             </div>
 
             <div class="block_password">
                 <p>Пароль</p>
                 <span class="error_text_auth display_none">Пароль не верный</span>
-                <input type="text" class="login_us" id="pass" value="123456">
+                <input type="text" class="login_us" id="pass" value="" placeholder="Пароль">
             </div>
         </div>
         <div class="down_block">
