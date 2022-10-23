@@ -20,17 +20,25 @@ VALUES (NULL, '" . $_POST['text'] . "', NULL, '" . $_POST['them'] . "', 'R', $mi
             go('spisok_l');
             break;
         case 'elems_2':
-
+            go('new_block');
             break;
         case 'elems_3':
-
+            go('spisok_l');
             break;
         case 'elems_4':
-
+            go('rector_mail');
             break;
         case 'exit':
             unset($_SESSION['ADMIN_LOGIN_IN']);
             go('home');
             break;
     }
+} else if (isset($_POST['exit_user_f']) and $_POST['exit_user_f'] = 1) {
+    unset($_SESSION['user']);
+    go("home");
+} else if (isset($_POST['edit_items']) and $_POST['edit_items'] = 1) {
+    print_r($_FILES);
+
+    $header = $_POST['header'];
+    $text = $_POST['text'];
 }

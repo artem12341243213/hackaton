@@ -37,35 +37,36 @@
     <div class="block_new message_rector rectors_un">
         <div class="new_header">Прошлые обращения </div>
         <?
-
-        $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`,`id_user` 
+        if (isset($_SESSION['user']['id'])) {
+            $vi = mysqli_query($CONNECT, "SELECT DISTINCT `rect_wop`.`id`,`text`,`them`,`otv`,`status`,`id_user` 
         FROM `rect_wop`,`user` where `rect_wop`.`id_user` = `user`.`id` and `rect_wop`.`id_user` =" . $_SESSION['user']['id'] . "
         ORDER BY `status`, `id` DESC;");
 
-        if ($vi->num_rows != 0) {
-            foreach ($vi as $item) {
+            if ($vi->num_rows != 0) {
+                foreach ($vi as $item) {
         ?>
 
 
-                <div class="new_body">
-                    <div class="new_body__header">
-                        <p>Тема сообщения </p>
-                        <p class="owadnlk"><? echo $item['them'] ?></p>
-                    </div>
-                    <div class="new_body__body">
-                        <p>Ответ ректора</p>
-                        <div>
-                            <? echo $item['otv'] ?>
+                    <div class="new_body">
+                        <div class="new_body__header">
+                            <p>Тема сообщения </p>
+                            <p class="owadnlk"><? echo $item['them'] ?></p>
                         </div>
-                        <p>Ваше сообщение </p>
-                        <div>
-                            <? echo $item['text'] ?>
-                        </div>
+                        <div class="new_body__body">
+                            <p>Ответ ректора</p>
+                            <div>
+                                <? echo $item['otv'] ?>
+                            </div>
+                            <p>Ваше сообщение </p>
+                            <div>
+                                <? echo $item['text'] ?>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-                <div class="hr_new_rectors_men"></div>
+                    <div class="hr_new_rectors_men"></div>
         <?
+                }
             }
         } ?>
 

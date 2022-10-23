@@ -140,10 +140,46 @@ function clist(id) {
 
 }
 
-
+function exit_user_acc() {
+    ajx("GLA_all/exit_user_f=1")
+}
 
 function closse_modal() {
     $(".modul_box_otv").addClass('display_none')
+}
+var imgmas = [];
+
+function Lest_so_f_mi() {
+
+
+    let files = $("#file_box")[0].files;
+    var fd = new FormData;
+    for (var i = 0; i < files.length; i++) {
+        fd.append('img' + i, files[i]);
+    }
+
+    mas_iputs = [
+        ["header", $("#select_cher").val()],
+        ["text", $("#text_no_arr").val()]];
+
+
+    mas_iputs.forEach((data) => {
+        fd.append(data[0], data[1] == '' ? "0" : data[1]);
+    })
+
+    fd.append('edit_items', "1");
+
+    $.ajax({
+        type: "POST",
+        url: "GLA_all",
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+
+        }
+    });
+
 }
 function send_mail_retors() {
     text_qul = "GLA_all/";

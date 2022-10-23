@@ -2,15 +2,16 @@
 session_start();
 function not_found()
 {
+    echo ("Ошибка <br>");
     print_r($_SESSION);
 }
 
-$m = "hakatons_bd";
+/* $m = "hakatons_bd";
 $s = "hakatons_les_bd_12";
-
-/* $m = "atoropchin";
-$s = 'AUW4DUkDLUHRE$KQ';
  */
+$m = "atoropchin";
+$s = 'AUW4DUkDLUHRE$KQ';
+
 $name_bd = $m;
 $name_user_bd = $m;
 $password_user_bd = $s;
@@ -36,11 +37,8 @@ if (file_exists("all/$page.php")) {
     require_once("auth/$page.php");
 } else if ((!isset($_SESSION['user']) or isset($_SESSION['ADMIN_LOGIN_IN'])) and file_exists("guest/$page.php")) {
     require_once("guest/$page.php");
-} else if (isset($_SESSION['ADMIN_LOGIN_IN'])) {
-    if ($page == 'adminPanels')
-        include('admin/adminPanels.php');
-    else
-        include("admin/$page.php");
+} else if (isset($_SESSION['ADMIN_LOGIN_IN']) and file_exists("admin/$page.php")) {
+    require_once("admin/$page.php");
 } else {
     http_response_code(404);
     not_found();
